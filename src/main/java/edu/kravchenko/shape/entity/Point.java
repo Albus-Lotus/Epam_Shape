@@ -1,4 +1,4 @@
-package com.edu.kravchenko.shape.entity;
+package edu.kravchenko.shape.entity;
 
 public class Point {
     private double x;
