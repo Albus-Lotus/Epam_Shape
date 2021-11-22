@@ -1,6 +1,6 @@
-package com.edu.kravchenko.shape.validator;
+package edu.kravchenko.shape.validator;
 
-import com.edu.kravchenko.shape.entity.Point;
+import edu.kravchenko.shape.entity.Point;
 
 public class EllipseParametersValidator {
 
