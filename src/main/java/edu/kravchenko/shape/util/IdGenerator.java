@@ -1,4 +1,4 @@
-package com.edu.kravchenko.shape.util;
+package edu.kravchenko.shape.util;
 
 public class IdGenerator {
     private static int counter;
