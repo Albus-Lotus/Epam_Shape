@@ -4,7 +4,7 @@ import edu.kravchenko.shape.entity.Point;
 
 public class EllipseParametersValidator {
 
-    public EllipseParametersValidator() {
+    private EllipseParametersValidator() {
     }
 
     public static boolean areValidParameters(Point firstPoint, Point secondPoint) {
