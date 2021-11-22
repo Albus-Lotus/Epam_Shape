@@ -1,4 +1,4 @@
-package com.edu.kravchenko.shape.exception;
+package edu.kravchenko.shape.exception;
 
 public class EllipseException extends Exception {
 
