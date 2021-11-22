@@ -1,12 +1,16 @@
-package com.edu.kravchenko.shape.entity;
+package edu.kravchenko.shape.entity;
 
-import com.edu.kravchenko.shape.exception.EllipseException;
-import com.edu.kravchenko.shape.util.IdGenerator;
-import com.edu.kravchenko.shape.validator.EllipseParametersValidator;
+import edu.kravchenko.shape.exception.EllipseException;
+import edu.kravchenko.shape.util.IdGenerator;
+import edu.kravchenko.shape.validator.EllipseParametersValidator;
 
 import java.util.Objects;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class Ellipse {
+    private static final Logger logger = LogManager.getLogger();
     private final int ellipseId;
     private Point firstPoint;
     private Point secondPoint;
@@ -19,6 +23,7 @@ public class Ellipse {
 
     public Ellipse(Point firstPoint, Point secondPoint) throws EllipseException {
         if (!EllipseParametersValidator.areValidParameters(firstPoint, secondPoint)) {
+            logger.log(Level.ERROR, "Invalid arguments");
             throw new EllipseException("Invalid arguments");
         }
         this.firstPoint = firstPoint;
