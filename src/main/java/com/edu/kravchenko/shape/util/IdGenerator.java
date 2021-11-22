@@ -1,12 +1,12 @@
 package com.edu.kravchenko.shape.util;
 
 public class IdGenerator {
-    private static long counter;
+    private static int counter;
 
     public IdGenerator() {
     }
 
-    public static long generateId() {
+    public static int generateId() {
         return counter++;
     }
 }
