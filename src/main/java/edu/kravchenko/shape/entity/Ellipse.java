@@ -59,8 +59,7 @@ public class Ellipse {
         if (this == o) return true;
         if (!(o instanceof Ellipse)) return false;
         Ellipse ellipse = (Ellipse) o;
-        return ellipseId == ellipse.ellipseId
-                && Objects.equals(getFirstPoint(), ellipse.getFirstPoint())
+        return Objects.equals(getFirstPoint(), ellipse.getFirstPoint())
                 && Objects.equals(getSecondPoint(), ellipse.getSecondPoint());
     }
 
