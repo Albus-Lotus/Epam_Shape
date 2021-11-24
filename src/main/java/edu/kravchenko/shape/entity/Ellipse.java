@@ -5,6 +5,8 @@ import edu.kravchenko.shape.util.IdGenerator;
 import edu.kravchenko.shape.validator.EllipseParametersValidator;
 
 import java.util.Objects;
+
+import edu.kravchenko.shape.validator.impl.EllipseParametersValidatorImpl;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -22,9 +24,10 @@ public class Ellipse {
     }
 
     public Ellipse(Point firstPoint, Point secondPoint) throws EllipseException {
-        if (!EllipseParametersValidator.areValidParameters(firstPoint, secondPoint)) {
-            logger.log(Level.ERROR, "Invalid arguments");
-            throw new EllipseException("Invalid arguments");
+        EllipseParametersValidatorImpl ellipseParametersValidator = new EllipseParametersValidatorImpl();
+        if (!ellipseParametersValidator.areValidParameters(firstPoint, secondPoint)) {
+            logger.log(Level.ERROR, "Invalid arguments: {}, {}", firstPoint, secondPoint);
+            throw new EllipseException("Invalid arguments: " + firstPoint + " " + secondPoint);
         }
         this.firstPoint = firstPoint;
         this.secondPoint = secondPoint;
