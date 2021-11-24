@@ -10,14 +10,14 @@ import org.apache.logging.log4j.Logger;
 import java.util.List;
 
 public class EllipseFactory {
-    private static final EllipseFactory instance = new EllipseFactory();
-    private static final int VALUE_COUNT = 4;
     private static final Logger logger = LogManager.getLogger();
+    private static final EllipseFactory instance = new EllipseFactory();
+    public static final int VALUE_COUNT = 4;
 
     private EllipseFactory() {
     }
 
-    public Ellipse createEllipse(List<Double> coordinates) throws EllipseException {
+    public Ellipse getEllipse(List<Double> coordinates) throws EllipseException {
         if (coordinates.size() != VALUE_COUNT) {
             logger.log(Level.ERROR, "Invalid arguments count");
             throw new EllipseException("Invalid arguments count");
