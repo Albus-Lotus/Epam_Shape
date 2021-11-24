@@ -2,16 +2,9 @@ package edu.kravchenko.shape.validator;
 
 import java.io.File;
 
-public class EllipseFileValidator {
+public interface EllipseFileValidator {
 
-    private EllipseFileValidator() {
-    }
+    boolean isValidFile(String filePath);
 
-    public static boolean isValidFile(String filePath) {
-        if (filePath == null) {
-            return false;
-        }
-        File file = new File(filePath);
-        return file.isFile() && file.length() != 0;
-    }
+    boolean isValidLine(String line);
 }
