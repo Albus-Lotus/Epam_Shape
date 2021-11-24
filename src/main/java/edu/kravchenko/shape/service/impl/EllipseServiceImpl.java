@@ -74,7 +74,9 @@ public class EllipseServiceImpl implements EllipseService {
             crossAxisY = Math.abs(firstPoint.getY()) == distance
                     || Math.abs(secondPoint.getY()) == distance;
         }
-        return crossAxisX ^ crossAxisY;
+        boolean result = crossAxisX ^ crossAxisY;
+        logger.log(Level.INFO, "Is cross the axis by distance: {}", result);
+        return result;
     }
 
     @Override
