@@ -8,12 +8,17 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static edu.kravchenko.shape.factory.EllipseFactory.VALUE_COUNT;
+
 public class EllipseParser {
     private static final Logger logger = LogManager.getLogger();
     private static final String SPACE_REGEXP = "\\s+";
-    private static final int VALUE_COUNT = 4;
 
     public List<Double> parseEllipse(String ellipseLine) throws EllipseException {
+        if (ellipseLine == null || ellipseLine.isBlank()) {
+            logger.log(Level.ERROR, "Line is blank");
+            throw new EllipseException("line is blank");
+        }
         List<Double> valueList;
         try {
             valueList = Arrays.stream(ellipseLine.split(SPACE_REGEXP))
