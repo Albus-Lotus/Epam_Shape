@@ -51,7 +51,7 @@ public class EllipseServiceImpl implements EllipseService {
         Point firstPoint = ellipse.getFirstPoint();
         Point secondPoint = ellipse.getSecondPoint();
         boolean result = firstPoint.getX() != secondPoint.getX()
-                && secondPoint.getY() != secondPoint.getY();
+                && firstPoint.getY() != secondPoint.getY();
         logger.log(Level.INFO, "Is oval valid: {}", result);
         return result;
     }

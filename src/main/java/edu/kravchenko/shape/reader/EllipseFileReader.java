@@ -17,9 +17,9 @@ import java.util.stream.Stream;
 
 public class EllipseFileReader {
     private static final Logger logger = LogManager.getLogger();
-    private static final EllipseFileValidator ellipseFileValidator = new EllipseFileValidatorImpl();
 
     public List<String> readFile(String filePath) throws EllipseException {
+        EllipseFileValidator ellipseFileValidator = new EllipseFileValidatorImpl();
         if (!ellipseFileValidator.isValidFile(filePath)) {
             logger.log(Level.ERROR, "File path represents invalid file");
             throw new EllipseException("File path represents invalid file");

@@ -17,7 +17,7 @@ public class EllipseParser {
     public List<Double> parseEllipse(String ellipseLine) throws EllipseException {
         if (ellipseLine == null || ellipseLine.isBlank()) {
             logger.log(Level.ERROR, "Line is blank");
-            throw new EllipseException("line is blank");
+            throw new EllipseException("Line is blank");
         }
         List<Double> valueList;
         try {
