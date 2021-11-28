@@ -2,9 +2,9 @@ package edu.kravchenko.shape.repository;
 
 import edu.kravchenko.shape.comparator.EllipseComparator;
 import edu.kravchenko.shape.entity.Ellipse;
+import edu.kravchenko.shape.exception.EllipseException;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -15,7 +15,7 @@ public class EllipseRepository {
     private EllipseRepository() {
     }
 
-    public EllipseRepository getInstance() {
+    public static EllipseRepository getInstance() {
         return INSTANCE;
     }
 
@@ -27,15 +27,21 @@ public class EllipseRepository {
         return storage.isEmpty();
     }
 
-    public void contains(Ellipse ellipse) {
-        storage.contains(ellipse);
+    public boolean contains(Ellipse ellipse) {
+        return storage.contains(ellipse);
     }
 
-    public Ellipse get(int index) {
+    public Ellipse get(int index) throws EllipseException {
+        if (index < 0 || index >= storage.size()) {
+            throw new EllipseException("Invalid index");
+        }
         return storage.get(index);
     }
 
-    public void set(int index, Ellipse ellipse) {
+    public void set(int index, Ellipse ellipse) throws EllipseException {
+        if (index < 0 || index >= storage.size()) {
+            throw new EllipseException("Invalid index");
+        }
         storage.set(index, ellipse);
     }
 
