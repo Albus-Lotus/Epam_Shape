@@ -14,22 +14,19 @@ public class EllipseParser {
     private static final Logger logger = LogManager.getLogger();
     private static final String SPACE_REGEXP = "\\s+";
 
-    public List<Double> parseEllipse(String ellipseLine) throws EllipseException {
-        if (ellipseLine == null || ellipseLine.isBlank()) {
-            logger.log(Level.ERROR, "Line is blank");
+    public List<Double> parseEllipse(String line) throws EllipseException {
+        if (line == null || line.isBlank()) {
             throw new EllipseException("Line is blank");
         }
         List<Double> valueList;
         try {
-            valueList = Arrays.stream(ellipseLine.split(SPACE_REGEXP))
+            valueList = Arrays.stream(line.split(SPACE_REGEXP))
                     .map(Double::parseDouble)
                     .collect(Collectors.toList());
         } catch (NumberFormatException e) {
-            logger.log(Level.ERROR, "Error while parsing double");
             throw new EllipseException("Error while parsing double", e);
         }
         if (valueList.size() != VALUE_COUNT) {
-            logger.log(Level.ERROR, "Invalid number count in line");
             throw new EllipseException("Invalid number count in line");
         }
         logger.log(Level.INFO, "Line were successfully parsed");

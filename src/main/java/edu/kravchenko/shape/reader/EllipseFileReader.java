@@ -21,7 +21,6 @@ public class EllipseFileReader {
     public List<String> readFile(String filePath) throws EllipseException {
         EllipseFileValidator ellipseFileValidator = new EllipseFileValidatorImpl();
         if (!ellipseFileValidator.isValidFile(filePath)) {
-            logger.log(Level.ERROR, "File path represents invalid file");
             throw new EllipseException("File path represents invalid file");
         }
         Path path = Paths.get(filePath);
@@ -31,7 +30,6 @@ public class EllipseFileReader {
                     .filter(ellipseFileValidator::isValidLine)
                     .collect(Collectors.toList());
         } catch (IOException e) {
-            logger.log(Level.ERROR, "Error while reading file {}", filePath);
             throw new EllipseException("Error while reading file" + filePath, e);
         }
         logger.log(Level.INFO, "Lines were successfully received");

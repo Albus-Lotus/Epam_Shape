@@ -9,19 +9,21 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Warehouse {
-    private static final Warehouse instance = new Warehouse();
+    private static final Logger logger = LogManager.getLogger();
+    private static final Warehouse INSTANCE = new Warehouse();
     private Map<Integer, EllipseParameters> ellipseMap = new HashMap<>();
 
     private Warehouse() {
     }
 
     public static Warehouse getInstance() {
-        return instance;
+        return INSTANCE;
     }
 
     public void putParameters(int id, double area, double perimeter) {
         EllipseParameters ellipseParameters = new EllipseParameters(area, perimeter);
         ellipseMap.putIfAbsent(id, ellipseParameters);
+        logger.log(Level.INFO, "Parameters were successfully added");
     }
 
     public EllipseParameters findParameters(int id) throws EllipseException {
@@ -39,6 +41,7 @@ public class Warehouse {
         }
         ellipseParameters.setArea(area);
         ellipseParameters.setPerimeter(perimeter);
+        logger.log(Level.INFO, "Parameters were successfully updated");
     }
 
     public boolean containsKey(int id) {

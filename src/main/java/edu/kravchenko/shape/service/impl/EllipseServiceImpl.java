@@ -10,13 +10,11 @@ import org.apache.logging.log4j.Logger;
 
 public class EllipseServiceImpl implements EllipseService {
     private static final Logger logger = LogManager.getLogger();
-    private static final String ELLIPSE_IS_NULL_ERROR_MESSAGE = "Ellipse is null";
 
     @Override
     public double calculateArea(Ellipse ellipse) throws EllipseException {
         if (ellipse == null) {
-            logger.log(Level.ERROR, ELLIPSE_IS_NULL_ERROR_MESSAGE);
-            throw new EllipseException(ELLIPSE_IS_NULL_ERROR_MESSAGE);
+            throw new EllipseException("Ellipse is null");
         }
         Point firstPoint = ellipse.getFirstPoint();
         Point secondPoint = ellipse.getSecondPoint();
@@ -30,8 +28,7 @@ public class EllipseServiceImpl implements EllipseService {
     @Override
     public double calculatePerimeter(Ellipse ellipse) throws EllipseException {
         if (ellipse == null) {
-            logger.log(Level.ERROR, ELLIPSE_IS_NULL_ERROR_MESSAGE);
-            throw new EllipseException(ELLIPSE_IS_NULL_ERROR_MESSAGE);
+            throw new EllipseException("Ellipse is null");
         }
         Point firstPoint = ellipse.getFirstPoint();
         Point secondPoint = ellipse.getSecondPoint();
@@ -45,8 +42,7 @@ public class EllipseServiceImpl implements EllipseService {
     @Override
     public boolean isValidOval(Ellipse ellipse) throws EllipseException {
         if (ellipse == null) {
-            logger.log(Level.ERROR, ELLIPSE_IS_NULL_ERROR_MESSAGE);
-            throw new EllipseException(ELLIPSE_IS_NULL_ERROR_MESSAGE);
+            throw new EllipseException("Ellipse is null");
         }
         Point firstPoint = ellipse.getFirstPoint();
         Point secondPoint = ellipse.getSecondPoint();
@@ -59,8 +55,7 @@ public class EllipseServiceImpl implements EllipseService {
     @Override
     public boolean isCrossAxisByDistance(Ellipse ellipse, double distance) throws EllipseException {
         if (ellipse == null) {
-            logger.log(Level.ERROR, ELLIPSE_IS_NULL_ERROR_MESSAGE);
-            throw new EllipseException(ELLIPSE_IS_NULL_ERROR_MESSAGE);
+            throw new EllipseException("Ellipse is null");
         }
         Point firstPoint = ellipse.getFirstPoint();
         Point secondPoint = ellipse.getSecondPoint();
@@ -82,8 +77,7 @@ public class EllipseServiceImpl implements EllipseService {
     @Override
     public boolean isOval(Ellipse ellipse) throws EllipseException {
         if (ellipse == null) {
-            logger.log(Level.ERROR, ELLIPSE_IS_NULL_ERROR_MESSAGE);
-            throw new EllipseException(ELLIPSE_IS_NULL_ERROR_MESSAGE);
+            throw new EllipseException("Ellipse is null");
         }
         Point firstPoint = ellipse.getFirstPoint();
         Point secondPoint = ellipse.getSecondPoint();
@@ -97,8 +91,7 @@ public class EllipseServiceImpl implements EllipseService {
     @Override
     public boolean isCircle(Ellipse ellipse) throws EllipseException {
         if (ellipse == null) {
-            logger.log(Level.ERROR, ELLIPSE_IS_NULL_ERROR_MESSAGE);
-            throw new EllipseException(ELLIPSE_IS_NULL_ERROR_MESSAGE);
+            throw new EllipseException("Ellipse is null");
         }
         Point firstPoint = ellipse.getFirstPoint();
         Point secondPoint = ellipse.getSecondPoint();

@@ -11,7 +11,7 @@ import java.util.List;
 
 public class EllipseFactory {
     private static final Logger logger = LogManager.getLogger();
-    private static final EllipseFactory instance = new EllipseFactory();
+    private static final EllipseFactory INSTANCE = new EllipseFactory();
     public static final int VALUE_COUNT = 4;
 
     private EllipseFactory() {
@@ -30,6 +30,6 @@ public class EllipseFactory {
     }
 
     public static EllipseFactory getInstance() {
-        return instance;
+        return INSTANCE;
     }
 }
