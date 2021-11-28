@@ -14,6 +14,9 @@ import java.util.List;
 public class WarehouseFiller {
     private static final Logger logger = LogManager.getLogger();
 
+    public WarehouseFiller() {
+    }
+
     public void fillWarehouse(List<Ellipse> ellipses) {
         Warehouse warehouse = Warehouse.getInstance();
         EllipseService ellipseService = new EllipseServiceImpl();

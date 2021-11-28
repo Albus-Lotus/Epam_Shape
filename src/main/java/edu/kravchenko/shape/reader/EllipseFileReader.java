@@ -18,6 +18,9 @@ import java.util.stream.Stream;
 public class EllipseFileReader {
     private static final Logger logger = LogManager.getLogger();
 
+    public EllipseFileReader() {
+    }
+
     public List<String> readFile(String filePath) throws EllipseException {
         EllipseFileValidator ellipseFileValidator = new EllipseFileValidatorImpl();
         if (!ellipseFileValidator.isValidFile(filePath)) {

@@ -14,6 +14,9 @@ public class EllipseParser {
     private static final Logger logger = LogManager.getLogger();
     private static final String SPACE_REGEXP = "\\s+";
 
+    public EllipseParser() {
+    }
+
     public List<Double> parseEllipse(String line) throws EllipseException {
         if (line == null || line.isBlank()) {
             throw new EllipseException("Line is blank");

@@ -7,6 +7,9 @@ import java.io.File;
 public class EllipseFileValidatorImpl implements EllipseFileValidator {
     private static final String VALID_ELLIPSE_LINE_REGEXP = "([-]?\\d+\\.\\d+\\s+){3}([-]?\\d+\\.\\d+)";
 
+    public EllipseFileValidatorImpl() {
+    }
+
     @Override
     public boolean isValidFile(String filePath) {
         if (filePath == null) {

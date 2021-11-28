@@ -11,6 +11,9 @@ import java.util.List;
 public class RepositoryFiller {
     private static final Logger logger = LogManager.getLogger();
 
+    public RepositoryFiller() {
+    }
+
     public void fillRepository(List<Ellipse> ellipses) {
         EllipseRepository ellipseRepository = EllipseRepository.getInstance();
         for (Ellipse ellipse : ellipses) {

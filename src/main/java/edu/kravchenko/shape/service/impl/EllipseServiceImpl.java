@@ -11,6 +11,9 @@ import org.apache.logging.log4j.Logger;
 public class EllipseServiceImpl implements EllipseService {
     private static final Logger logger = LogManager.getLogger();
 
+    public EllipseServiceImpl() {
+    }
+
     @Override
     public double calculateArea(Ellipse ellipse) throws EllipseException {
         if (ellipse == null) {

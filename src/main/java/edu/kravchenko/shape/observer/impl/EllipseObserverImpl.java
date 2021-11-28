@@ -15,6 +15,9 @@ import org.apache.logging.log4j.Logger;
 public class EllipseObserverImpl implements EllipseObserver {
     private static final Logger logger = LogManager.getLogger();
 
+    public EllipseObserverImpl() {
+    }
+
     @Override
     public void parameterChanged(EllipseEvent event) {
         Warehouse warehouse = Warehouse.getInstance();

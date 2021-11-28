@@ -5,6 +5,9 @@ import edu.kravchenko.shape.validator.EllipseParametersValidator;
 
 public class EllipseParametersValidatorImpl implements EllipseParametersValidator {
 
+    public EllipseParametersValidatorImpl() {
+    }
+
     @Override
     public boolean areValidParameters(Point firstPoint, Point secondPoint) {
         if (firstPoint == null || secondPoint == null) {
