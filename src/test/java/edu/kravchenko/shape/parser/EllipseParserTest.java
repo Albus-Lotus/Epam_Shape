@@ -10,9 +10,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class EllipseParserTest {
-    private static final EllipseParser ellipseParser = new EllipseParser();
-    private static final String VALID_LINE = "-10.0 10.0 30.0 40.0";
-    private static final String INVALID_LINE = "-10.0 10.0 30.0 40.0 50.0";
+    private final EllipseParser ellipseParser = new EllipseParser();
+    private final String VALID_LINE = "-10.0 10.0 30.0 40.0";
+    private final String INVALID_LINE = "-10.0 10.0 30.0 40.0 50.0";
     private static final List<Double> DOUBLE_LIST = new ArrayList<>();
 
     @BeforeAll

@@ -12,8 +12,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class EllipseFileReaderTest {
-    private static final EllipseFileReader ellipseFileReader = new EllipseFileReader();
-    private static final String FILE_PATH = "src/main/resources/files/ellipse_data.txt";
+    private final EllipseFileReader ellipseFileReader = new EllipseFileReader();
+    private final String FILE_PATH = "src/main/resources/files/ellipse_data.txt";
     private static final List<String> LINE_LIST = new ArrayList<>();
 
     @BeforeAll

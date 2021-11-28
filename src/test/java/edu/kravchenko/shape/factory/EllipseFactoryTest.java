@@ -11,8 +11,8 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class EllipseFactoryTest {
-    private static final EllipseFactory ellipseFactory = EllipseFactory.getInstance();
-    private static final List<Double> DOUBLE_LIST = new ArrayList<>();
+    private final EllipseFactory ellipseFactory = EllipseFactory.getInstance();
+    private final List<Double> DOUBLE_LIST = new ArrayList<>();
 
     @BeforeEach
     public void setUp() {
