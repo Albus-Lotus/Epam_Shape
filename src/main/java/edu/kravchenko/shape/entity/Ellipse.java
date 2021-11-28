@@ -1,9 +1,14 @@
 package edu.kravchenko.shape.entity;
 
 import edu.kravchenko.shape.exception.EllipseException;
+import edu.kravchenko.shape.observer.EllipseEvent;
+import edu.kravchenko.shape.observer.EllipseObservable;
+import edu.kravchenko.shape.observer.EllipseObserver;
 import edu.kravchenko.shape.util.IdGenerator;
 import edu.kravchenko.shape.validator.EllipseParametersValidator;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import edu.kravchenko.shape.validator.impl.EllipseParametersValidatorImpl;
@@ -11,11 +16,12 @@ import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class Ellipse {
+public class Ellipse implements EllipseObservable {
     private static final Logger logger = LogManager.getLogger();
     private final int ellipseId;
     private Point firstPoint;
     private Point secondPoint;
+    private final List<EllipseObserver> observers = new ArrayList<>();
 
     public Ellipse() {
         firstPoint = new Point();
@@ -26,7 +32,6 @@ public class Ellipse {
     public Ellipse(Point firstPoint, Point secondPoint) throws EllipseException {
         EllipseParametersValidatorImpl ellipseParametersValidator = new EllipseParametersValidatorImpl();
         if (!ellipseParametersValidator.areValidParameters(firstPoint, secondPoint)) {
-            logger.log(Level.ERROR, "Invalid arguments: {}, {}", firstPoint, secondPoint);
             throw new EllipseException("Invalid arguments: " + firstPoint + " " + secondPoint);
         }
         this.firstPoint = firstPoint;
@@ -40,6 +45,7 @@ public class Ellipse {
 
     public void setFirstPoint(Point firstPoint) {
         this.firstPoint = firstPoint;
+        notifyObservers();
     }
 
     public Point getSecondPoint() {
@@ -48,6 +54,7 @@ public class Ellipse {
 
     public void setSecondPoint(Point secondPoint) {
         this.secondPoint = secondPoint;
+        notifyObservers();
     }
 
     public int getEllipseId() {
@@ -79,5 +86,25 @@ public class Ellipse {
         sb.append(", secondPoint=").append(secondPoint);
         sb.append("}");
         return sb.toString();
+    }
+
+    @Override
+    public void attach(EllipseObserver observer) {
+        observers.add(observer);
+    }
+
+    @Override
+    public void detach(EllipseObserver observer) {
+        observers.remove(observer);
+    }
+
+    @Override
+    public void notifyObservers() {
+        for (EllipseObserver observer : observers) {
+            if (observer != null) {
+                EllipseEvent event = new EllipseEvent(this);
+                observer.parameterChanged(event);
+            }
+        }
     }
 }
