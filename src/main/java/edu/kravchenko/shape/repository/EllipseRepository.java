@@ -1,5 +1,6 @@
 package edu.kravchenko.shape.repository;
 
+import edu.kravchenko.shape.comparator.EllipseComparator;
 import edu.kravchenko.shape.entity.Ellipse;
 
 import java.util.ArrayList;
@@ -50,7 +51,7 @@ public class EllipseRepository {
         storage.clear();
     }
 
-    public List<Ellipse> sort(Comparator<? super Ellipse> comparator) {
+    public List<Ellipse> sort(EllipseComparator comparator) {
         return storage.stream().
                 sorted(comparator).
                 collect(Collectors.toList());
