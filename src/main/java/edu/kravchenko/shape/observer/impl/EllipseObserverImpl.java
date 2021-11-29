@@ -6,7 +6,6 @@ import edu.kravchenko.shape.observer.EllipseEvent;
 import edu.kravchenko.shape.observer.EllipseObserver;
 import edu.kravchenko.shape.service.EllipseService;
 import edu.kravchenko.shape.service.impl.EllipseServiceImpl;
-import edu.kravchenko.shape.warehouse.EllipseParameters;
 import edu.kravchenko.shape.warehouse.Warehouse;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;

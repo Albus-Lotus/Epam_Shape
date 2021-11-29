@@ -2,10 +2,8 @@ package edu.kravchenko.shape.repository;
 
 import edu.kravchenko.shape.comparator.EllipseComparator;
 import edu.kravchenko.shape.entity.Ellipse;
-import edu.kravchenko.shape.entity.Point;
 import edu.kravchenko.shape.exception.EllipseException;
 import edu.kravchenko.shape.factory.EllipseFactory;
-import edu.kravchenko.shape.filler.RepositoryFiller;
 import edu.kravchenko.shape.observer.EllipseObserver;
 import edu.kravchenko.shape.observer.impl.EllipseObserverImpl;
 import edu.kravchenko.shape.repository.impl.*;

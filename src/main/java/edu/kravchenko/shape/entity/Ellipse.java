@@ -5,19 +5,14 @@ import edu.kravchenko.shape.observer.EllipseEvent;
 import edu.kravchenko.shape.observer.EllipseObservable;
 import edu.kravchenko.shape.observer.EllipseObserver;
 import edu.kravchenko.shape.util.IdGenerator;
-import edu.kravchenko.shape.validator.EllipseParametersValidator;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 import edu.kravchenko.shape.validator.impl.EllipseParametersValidatorImpl;
-import org.apache.logging.log4j.Level;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 public class Ellipse implements EllipseObservable {
-    private static final Logger logger = LogManager.getLogger();
     private final int ellipseId;
     private Point firstPoint;
     private Point secondPoint;
