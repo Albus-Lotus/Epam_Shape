@@ -4,9 +4,9 @@ import edu.kravchenko.shape.entity.Ellipse;
 import edu.kravchenko.shape.repository.EllipseSpecification;
 
 public class EllipseMaxWidthSpecification implements EllipseSpecification {
-    private final int maxWidth;
+    private final double maxWidth;
 
-    public EllipseMaxWidthSpecification(int maxWidth) {
+    public EllipseMaxWidthSpecification(double maxWidth) {
         this.maxWidth = maxWidth;
     }
 

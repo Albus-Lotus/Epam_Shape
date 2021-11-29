@@ -4,9 +4,9 @@ import edu.kravchenko.shape.entity.Ellipse;
 import edu.kravchenko.shape.repository.EllipseSpecification;
 
 public class EllipseMinHeightSpecification implements EllipseSpecification {
-    private final int minHeight;
+    private final double minHeight;
 
-    public EllipseMinHeightSpecification(int minHeight) {
+    public EllipseMinHeightSpecification(double minHeight) {
         this.minHeight = minHeight;
     }
 

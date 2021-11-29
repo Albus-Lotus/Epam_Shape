@@ -11,10 +11,10 @@ import org.apache.logging.log4j.Logger;
 
 public class EllipseAreaRangeSpecification implements EllipseSpecification {
     private static final Logger logger = LogManager.getLogger();
-    private final int fromArea;
-    private final int toArea;
+    private final double fromArea;
+    private final double toArea;
 
-    public EllipseAreaRangeSpecification(int fromArea, int toArea) {
+    public EllipseAreaRangeSpecification(double fromArea, double toArea) {
         this.fromArea = fromArea;
         this.toArea = toArea;
     }
@@ -29,6 +29,6 @@ public class EllipseAreaRangeSpecification implements EllipseSpecification {
             logger.log(Level.ERROR, e);
         }
         return Double.compare(fromArea, area) <= 0
-                && Double.compare(area, toArea) >= 0;
+                && Double.compare(area, toArea) <= 0;
     }
 }

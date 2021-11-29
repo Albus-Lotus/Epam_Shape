@@ -4,6 +4,7 @@ import edu.kravchenko.shape.exception.EllipseException;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +14,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class EllipseFileReaderTest {
     private final EllipseFileReader ellipseFileReader = new EllipseFileReader();
-    private final String FILE_PATH = "src/main/resources/files/ellipse_data.txt";
     private static final List<String> LINE_LIST = new ArrayList<>();
 
     @BeforeAll
@@ -35,7 +35,9 @@ public class EllipseFileReaderTest {
 
     @Test
     public void readFile() throws EllipseException {
-        List<String> actual = ellipseFileReader.readFile(FILE_PATH);
+        File file = new File(getClass().getClassLoader().getResource("files/ellipse_data.txt").getFile());
+        String path = file.getAbsolutePath();
+        List<String> actual = ellipseFileReader.readFile(path);
 
         assertThat(actual).containsExactlyElementsOf(LINE_LIST);
     }
